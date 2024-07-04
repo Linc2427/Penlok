@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/api.php$
+RewriteRule ^(.*)$ /www/wwwroot/penlok.mqdd.cloud/api.php [L]
