@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <title>Login 04</title>
+    <title>Login Page</title>
     <meta charset="utf-8" />
     <meta
         name="viewport"
@@ -101,7 +101,7 @@ if (isset($_POST['submit'])) {
                                             Sign In
                                         </button>
                                     </div>
-                                    <div class="form-group d-md-flex">
+                                    <!-- <div class="form-group d-md-flex">
                                         <div class="w-50 text-left">
                                             <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
                                                 <input type="checkbox" checked />
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
                                         <div class="w-50 text-md-right">
                                             <a href="#">Forgot Password</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </form>
                                 <p class="text-center">
                                     Not a member? <a data-toggle="tab" href="#signup">Sign Up</a>
