@@ -8162,7 +8162,9 @@ h1, h2, h3, h4, h5,
   background: #e3b04b !important; }
 
 .ftco-section {
-  padding: 2em 0; }
+  padding: 4em 0; 
+  background-image: url(assets/pens-gedung.jpg)
+}
 
 .ftco-no-pt {
   padding-top: 0; }
@@ -8201,7 +8203,7 @@ h1, h2, h3, h4, h5,
 .login-wrap {
   position: relative;
   background: #fff h3;
-    background-font-weight: 300; }
+  background-font-weight: 300; }
 
 .form-group {
   position: relative; }
