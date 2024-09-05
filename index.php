@@ -8,14 +8,14 @@ if (!$conn) {
 }
 
 // Jika tidak bisa login maka balik ke login.php
-// jika masuk ke halaman ini melalui url, maka langsung menuju halaman login
+// jika masuk ke page ini melalui url, maka langsung menuju page login
 if ($_SESSION['login'] != true) {
   echo '<script>window.location = "login.php"</script>';
 }
 
 
 
-// Mendapatkan total data dari kedua tabel dan menghitung jumlah halaman
+// Mendapatkan total data dari kedua tabel dan menghitung jumlah page
 $result1 = mysqli_query($conn, "SELECT COUNT(*) AS total FROM Kamera1");
 $row1 = mysqli_fetch_assoc($result1);
 $total_data1 = $row1['total'];
@@ -25,12 +25,15 @@ $row2 = mysqli_fetch_assoc($result2);
 $total_data2 = $row2['total'];
 
 $total_data = $total_data1 + $total_data2;
-$limit = 10; // Data per halaman
+$limit = 10; // Data per page
 $total_pages = ceil($total_data / $limit);
 
 // Set default page to 1 if 'page' query string is not set
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($page - 1) * $limit;
+
+$previous = $page - 1;
+$next = $page + 1;
 
 // Query untuk mengambil data dari kedua tabel dengan paginasi
 $query = "
@@ -77,6 +80,8 @@ $result = mysqli_query($conn, $query);
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
+  <link rel="icon" href="../penlok-testing/assets/penlok-logo-no-bg.png">
+
   <!-- jQuery -->
 
   <script src="plugins/jquery/jquery.min.js"></script>
@@ -91,7 +96,7 @@ $result = mysqli_query($conn, $query);
     <!-- Preloader -->
 
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="../penlok-testing/assets/penlok-logo-no-bg.png" alt="AdminLTELogo" height="60" width="60">
     </div>
 
 
@@ -154,7 +159,7 @@ $result = mysqli_query($conn, $query);
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
           </div>
-          <img src="dist/img/AdminLTELogo.png" class="img-circle elevation-2" alt="User Image">
+          <img src="../penlok-testing/assets/penlok-logo.png" class="img-circle elevation-2" alt="User Image">
           <div class="info">
             <a href="#" class="d-block">
               <?php echo $_SESSION['user']; ?>
@@ -340,13 +345,20 @@ $result = mysqli_query($conn, $query);
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer clearfix">
-                    <ul class="pagination pagination-sm m-0 float-right" id="pagination">
-                      <?php
-                      for ($i = 1; $i <= $total_pages; $i++) {
-                        echo "<li class='page-item'><a href='#' class='page-link' data-page='$i'>$i</a></li>";
-                      }
-                      ?>
-                    </ul>
+                  <ul class="pagination pagination-sm m-0 float-right" id="pagination">  
+    <li class="page-item">
+        <a class="page-link" href="<?php if($page > 1) { echo '?page=' . $previous; } else { echo '#'; } ?>">Previous</a>
+    </li>
+    <?php
+    for ($i = 1; $i <= $limit; $i++) {
+        echo "<li class='page-item'><a href='?page=$i' class='page-link' data-page='$i'>$i</a></li>";
+    }
+    ?>		
+    <li class="page-item">
+        <a class="page-link" href="<?php if($page < $total_pages) { echo '?page=' . $next; } else { echo '#'; } ?>">Next</a>
+    </li>  
+</ul>
+
                   </div>
                 </div>
                 <!-- Modal -->
