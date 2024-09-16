@@ -80,7 +80,7 @@ $result = mysqli_query($conn, $query);
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
-  <link rel="icon" href="../penlok-testing/assets/penlok-logo-no-bg.png">
+  <link rel="icon" href="./assets/penlok-logo-no-bg.png">
 
   <!-- jQuery -->
 
@@ -96,7 +96,7 @@ $result = mysqli_query($conn, $query);
     <!-- Preloader -->
 
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="../penlok-testing/assets/penlok-logo-no-bg.png" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="./assets/penlok-logo-no-bg.png" alt="Logo" height="60" width="60">
     </div>
 
 
@@ -159,7 +159,7 @@ $result = mysqli_query($conn, $query);
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
           </div>
-          <img src="../penlok-testing/assets/penlok-logo.png" class="img-circle elevation-2" alt="User Image">
+          <img src="./assets/penlok-logo.png" class="img-circle elevation-2" alt="User Image">
           <div class="info">
             <a href="#" class="d-block">
               <?php echo $_SESSION['user']; ?>

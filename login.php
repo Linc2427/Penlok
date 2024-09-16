@@ -47,9 +47,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="dist/css/login.css" />
 </head>
 
-<body>
+<body style="background-image: url('assets/pens-gedung.jpg'); background-size:cover; background-repeat:no-repeat;">
     <!-- <?php echo $_SESSION['error'] ?> -->
-    <section style="background-image: url(assets/pens-gedung.jpg)" class="ftco-section">
+    <section>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
