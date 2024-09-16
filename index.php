@@ -367,7 +367,8 @@ $result = mysqli_query($conn, $query);
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="detailsModalLabel">Image Details</h5>
-                        <span aria-hidden="true">&times;</span>
+                        <a href="#" class="close" data-bs-dismiss="modal" aria-label="close">&times;</a>
+                        <!-- <span aria-hidden="true">&times;</span> -->
                         </button>
                       </div>
                       <div class="modal-body">
